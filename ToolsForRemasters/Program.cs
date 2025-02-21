@@ -7,7 +7,11 @@ public class ToolsForRemasters
 {
     public static void Main(string[] args)
     {
-        string[] files = Directory.GetFiles(args[0]);
+        string[] files;
+        if (args[0] == null)
+            files = Directory.GetFiles(Console.ReadLine());
+        else
+            files = Directory.GetFiles(args[0]);
 
         var groupedFiles = files
             .Where(file =>
@@ -28,7 +32,7 @@ public class ToolsForRemasters
                 Console.WriteLine("Need check: " + group.Key);
                 Directory.CreateDirectory(group.Key);
                 foreach (var file in group)
-                    File.Move(file, group.Key + "\\" + Path.GetFileName(file));
+                    File.Copy(file, group.Key + "\\" + Path.GetFileName(file));
             }
             else
             {
