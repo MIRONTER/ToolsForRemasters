@@ -28,7 +28,7 @@ public class ToolsForRemasters
                 Console.WriteLine("Need check: " + group.Key);
                 Directory.CreateDirectory(group.Key);
                 foreach (var file in group)
-                    File.Copy(file, group.Key + "\\" + Path.GetFileName(file));
+                    File.Copy(file, group.Key + "\\" + Path.GetFileName(file), true);
             }
             else
             {
@@ -38,5 +38,7 @@ public class ToolsForRemasters
                         File.Copy(largestFile, file, true);
             }
         }
+
+        Console.ReadLine();
     }
 }
