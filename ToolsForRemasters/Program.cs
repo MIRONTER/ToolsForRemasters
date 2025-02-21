@@ -7,11 +7,7 @@ public class ToolsForRemasters
 {
     public static void Main(string[] args)
     {
-        string[] files;
-        if (args[0] == null)
-            files = Directory.GetFiles(Console.ReadLine());
-        else
-            files = Directory.GetFiles(args[0]);
+        string[] files = Directory.GetFiles(Console.ReadLine());
 
         var groupedFiles = files
             .Where(file =>
