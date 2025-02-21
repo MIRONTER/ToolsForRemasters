@@ -18,7 +18,9 @@ public class ToolsForRemasters
             .GroupBy(file =>
             {
                 string fileName = Path.GetFileNameWithoutExtension(file);
-                return fileName.Substring(17, 15);
+                int start = fileName.IndexOf('-');
+                int end = fileName.IndexOf('-', start + 1) - start;
+                return fileName.Substring(start, end);
             });
 
         foreach (var group in groupedFiles.Where(g => g.Count() > 1))
