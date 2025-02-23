@@ -7,7 +7,10 @@ public class ToolsForRemasters
 {
     public static void Main(string[] args)
     {
-        string[] files = Directory.GetFiles(Console.ReadLine());
+        Console.WriteLine("Path to directory:");
+        string[] files = Directory.GetFiles(Console.ReadLine(), "*", SearchOption.AllDirectories);
+        Console.WriteLine("Limit of files in group:");
+        int limit = Convert.ToInt16(Console.ReadLine());
 
         var groupedFiles = files
             .Where(file =>
@@ -25,7 +28,7 @@ public class ToolsForRemasters
 
         foreach (var group in groupedFiles.Where(g => g.Count() > 1))
         {
-            if (group.Count() > 3)
+            if (group.Count() > limit)
             {
                 Console.WriteLine("Need check: " + group.Key);
                 Directory.CreateDirectory(group.Key);
@@ -36,11 +39,11 @@ public class ToolsForRemasters
             {
                 string? largestFile = group.OrderByDescending(f => new FileInfo(f).Length).FirstOrDefault();
                 foreach (var file in group)
-                    if (new FileInfo(largestFile).Length > new FileInfo(file).Length + 30000)
+                    if (new FileInfo(largestFile).Length > new FileInfo(file).Length * 1.3)
                         File.Copy(largestFile, file, true);
             }
         }
-
+        Console.WriteLine("Done!");
         Console.ReadLine();
     }
 }
