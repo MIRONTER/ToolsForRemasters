@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35818.85 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolsForRemasters", "ToolsForRemasters\ToolsForRemasters.csproj", "{3E04EBB3-BE1F-470B-A2A2-8C9C4B51B681}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolsForRemasters", "ToolsForRemasters\ToolsForRemasters.csproj", "{52F84BD9-4E38-496C-83F3-DE6C31A572F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3E04EBB3-BE1F-470B-A2A2-8C9C4B51B681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3E04EBB3-BE1F-470B-A2A2-8C9C4B51B681}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3E04EBB3-BE1F-470B-A2A2-8C9C4B51B681}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3E04EBB3-BE1F-470B-A2A2-8C9C4B51B681}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52F84BD9-4E38-496C-83F3-DE6C31A572F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52F84BD9-4E38-496C-83F3-DE6C31A572F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52F84BD9-4E38-496C-83F3-DE6C31A572F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52F84BD9-4E38-496C-83F3-DE6C31A572F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {586ACEA6-9698-4526-B57E-95934862CAEF}
+		SolutionGuid = {119B4E52-9B9A-4175-AB83-463D3C251CC3}
 	EndGlobalSection
 EndGlobal
