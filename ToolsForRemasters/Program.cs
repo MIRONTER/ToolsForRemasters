@@ -43,7 +43,7 @@ namespace ToolsForRemasters
                 {
                     string largestFile = group.OrderByDescending(f => new FileInfo(f).Length).FirstOrDefault();
                     foreach (var file in group)
-                        if (new FileInfo(largestFile).Length > new FileInfo(file).Length * 1.3)
+                        if (new FileInfo(largestFile).Length > new FileInfo(file).Length * 2)
                             File.Copy(largestFile, file, true);
                 }
             }
