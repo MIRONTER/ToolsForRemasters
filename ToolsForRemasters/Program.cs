@@ -15,12 +15,14 @@ namespace ToolsForRemasters
             string[] files = Directory.GetFiles(Console.ReadLine(), "*", SearchOption.AllDirectories);
             Console.WriteLine("Limit of files in group:");
             int limit = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine("Multiplier:");
+            int multiplier = Convert.ToInt16(Console.ReadLine());
 
             var groupedFiles = files
                 .Where(file =>
                 {
                     string fileName = Path.GetFileNameWithoutExtension(file);
-                    return fileName.Length > 40;
+                    return fileName.Length > 36;
                 })
                 .GroupBy(file =>
                 {
@@ -43,7 +45,7 @@ namespace ToolsForRemasters
                 {
                     string largestFile = group.OrderByDescending(f => new FileInfo(f).Length).FirstOrDefault();
                     foreach (var file in group)
-                        if (new FileInfo(largestFile).Length > new FileInfo(file).Length * 2)
+                        if (new FileInfo(largestFile).Length > new FileInfo(file).Length * multiplier)
                             File.Copy(largestFile, file, true);
                 }
             }
