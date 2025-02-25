@@ -31,7 +31,6 @@ namespace ToolsForRemasters
                     int end = fileName.IndexOf('-', start + 1) - start;
                     return fileName.Substring(start, end);
                 });
-
             foreach (var group in groupedFiles.Where(g => g.Count() > 1))
             {
                 if (group.Count() > limit)
@@ -49,6 +48,19 @@ namespace ToolsForRemasters
                             File.Copy(largestFile, file, true);
                 }
             }
+
+            var tempFiles = files
+                .Where(file =>
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(file);
+                    return fileName.Length <= 36;
+                });
+            Directory.CreateDirectory("temp");
+            foreach (var file in tempFiles)
+            {
+                File.Move(file, "temp\\" + Path.GetFileName(file));
+            }
+
             Console.WriteLine("Done!");
             Console.ReadLine();
         }
