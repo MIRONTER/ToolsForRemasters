@@ -52,7 +52,7 @@ namespace ToolsForRemasters
                 .Where(file =>
                 {
                     string fileName = Path.GetFileNameWithoutExtension(file);
-                    return fileName.Length > 36;
+                    return fileName.Length > 33;
                 })
                 .GroupBy(file =>
                 {
@@ -88,7 +88,7 @@ namespace ToolsForRemasters
                 .Where(file =>
                 {
                     string fileName = Path.GetFileNameWithoutExtension(file);
-                    return fileName.Length <= 36;
+                    return fileName.Length <= 33;
                 });
             Directory.CreateDirectory("temp");
             foreach (var file in tempFiles)
