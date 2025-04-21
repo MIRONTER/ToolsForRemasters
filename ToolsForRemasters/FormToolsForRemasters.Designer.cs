@@ -36,6 +36,7 @@
             this.NumericUpDownMultiplier = new System.Windows.Forms.NumericUpDown();
             this.ButtonStartRepair = new System.Windows.Forms.Button();
             this.ButtonFindTemp = new System.Windows.Forms.Button();
+            this.ProgressBar = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDownLimit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDownMultiplier)).BeginInit();
             this.SuspendLayout();
@@ -139,12 +140,20 @@
             this.ButtonFindTemp.UseVisualStyleBackColor = false;
             this.ButtonFindTemp.Click += new System.EventHandler(this.ButtonFindTemp_Click);
             // 
+            // ProgressBar
+            // 
+            this.ProgressBar.Location = new System.Drawing.Point(12, 240);
+            this.ProgressBar.Name = "ProgressBar";
+            this.ProgressBar.Size = new System.Drawing.Size(246, 23);
+            this.ProgressBar.TabIndex = 23;
+            // 
             // FormToolsForRemasters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(270, 246);
+            this.ClientSize = new System.Drawing.Size(270, 274);
+            this.Controls.Add(this.ProgressBar);
             this.Controls.Add(this.ButtonFindTemp);
             this.Controls.Add(this.ButtonStartRepair);
             this.Controls.Add(this.NumericUpDownMultiplier);
@@ -176,6 +185,7 @@
         private System.Windows.Forms.NumericUpDown NumericUpDownMultiplier;
         public System.Windows.Forms.Button ButtonStartRepair;
         public System.Windows.Forms.Button ButtonFindTemp;
+        private System.Windows.Forms.ProgressBar ProgressBar;
     }
 }
 

@@ -35,17 +35,17 @@ namespace ToolsForRemasters
 
         private void ButtonStart_Click(object sender, EventArgs e)
         {
-            Repair(TextBoxPath.Text, NumericUpDownLimit.Value, NumericUpDownMultiplier.Value);
+            Repair(TextBoxPath.Text, NumericUpDownLimit.Value, NumericUpDownMultiplier.Value, ProgressBar);
             MessageBox.Show("Done!");
         }
 
         private void ButtonFindTemp_Click(object sender, EventArgs e)
         {
-            FindTemp(TextBoxPath.Text);
+            FindTemp(TextBoxPath.Text, ProgressBar);
             MessageBox.Show("Done!");
         }
 
-        private static void Repair(string path, decimal limit, decimal multiplier)
+        private static void Repair(string path, decimal limit, decimal multiplier, ProgressBar progressBar)
         {
             string[] files = Directory.GetFiles(path, "*", SearchOption.AllDirectories);
             var groupedFiles = files
@@ -61,8 +61,11 @@ namespace ToolsForRemasters
                     int end = fileName.IndexOf('-', start + 1) - start;
                     return fileName.Substring(start, end);
                 });
+            progressBar.Value = 0;
+            progressBar.Maximum = groupedFiles.Where(g => g.Count() > 2).Count();
             foreach (var group in groupedFiles.Where(g => g.Count() > 2))
             {
+                progressBar.Value++;
                 if (group.Count() > limit)
                 {
                     Console.WriteLine("Need check: " + group.Key);
@@ -80,7 +83,7 @@ namespace ToolsForRemasters
             }
         }
 
-        private static void FindTemp(string path)
+        private static void FindTemp(string path, ProgressBar progressBar)
         {
             string[] files = Directory.GetFiles(path, "*", SearchOption.AllDirectories);
 
@@ -91,8 +94,11 @@ namespace ToolsForRemasters
                     return fileName.Length <= 36;
                 });
             Directory.CreateDirectory("temp");
+            progressBar.Value = 0;
+            progressBar.Maximum = tempFiles.Count();
             foreach (var file in tempFiles)
             {
+                progressBar.Value++;
                 File.Move(file, "temp\\" + Path.GetFileName(file));
             }
         }
